@@ -1,0 +1,25 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Data files (DVC will track these)
+data/raw/
+data/processed/
+
+# Models (DVC will track these)
+models/
+
+# MLflow
+mlruns/
+
+# Environment
+.env
+
+# Reports (generated files)
+reports/
+
+# VS Code
+.vscode/
