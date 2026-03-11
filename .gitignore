@@ -5,12 +5,18 @@ __pycache__/
 *.pyo
 *.egg-info/
 
-# Data files (DVC will track these)
-data/raw/
-data/processed/
+# Data files (DVC will track these - but allow .dvc pointer files)
+data/raw/*
+data/processed/*
 
-# Models (DVC will track these)
-models/
+# Allow DVC pointer files
+!data/raw/*.dvc
+!data/processed/*.dvc
+!data/**/.gitignore
+
+# Models
+models/*
+!models/*.dvc
 
 # MLflow
 mlruns/

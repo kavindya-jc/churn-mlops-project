@@ -3,6 +3,8 @@
 import pandas as pd
 import joblib
 import mlflow
+import json
+import os
 import logging
 from sklearn.metrics import (
     accuracy_score, precision_score,
@@ -37,6 +39,12 @@ def evaluate_best_model():
     print("="*50)
     for k, v in metrics.items():
         print(f"  {k:12s}: {v:.4f}")
+
+    # Save metrics to JSON for DVC to track
+    os.makedirs("reports", exist_ok=True)
+    with open("reports/metrics.json", "w") as f:
+        json.dump(metrics, f, indent=4)
+    logger.info("✅ Metrics saved to reports/metrics.json")
 
     # Log to MLflow
     mlflow.set_experiment("churn_prediction")
